@@ -1,0 +1,174 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  body {
+    @apply bg-ink-900 text-slate-200 antialiased;
+    background-image:
+      radial-gradient(900px 500px at 12% -10%, rgba(139, 92, 246, 0.16), transparent 60%),
+      radial-gradient(800px 500px at 92% 0%, rgba(34, 211, 238, 0.1), transparent 55%),
+      linear-gradient(180deg, #070b16 0%, #050813 100%);
+    background-attachment: fixed;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #24304d;
+    border-radius: 999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #33456b;
+  }
+
+  input,
+  select,
+  textarea {
+    @apply bg-ink-800 border border-white/10 text-slate-100 rounded-lg outline-none;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+  input:focus,
+  select:focus,
+  textarea:focus {
+    @apply border-accent-purple/70;
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.15);
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-2xl border border-white/[0.07] bg-ink-850/80 backdrop-blur-sm;
+    box-shadow: 0 18px 40px -24px rgba(0, 0, 0, 0.9);
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:border-accent-purple/30 hover:shadow-glow;
+  }
+
+  .panel-title {
+    @apply text-sm font-semibold uppercase tracking-[0.16em] text-slate-400;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-3.5 py-2 text-sm font-medium transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-purple/60;
+  }
+
+  .btn-primary {
+    @apply btn text-white;
+    background-image: linear-gradient(135deg, #7c3aed 0%, #3b82f6 100%);
+    box-shadow: 0 10px 26px -12px rgba(124, 58, 237, 0.9);
+  }
+  .btn-primary:hover:not(:disabled) {
+    filter: brightness(1.12);
+  }
+
+  .btn-ghost {
+    @apply btn border border-white/10 bg-white/[0.03] text-slate-300 hover:bg-white/[0.07] hover:text-white;
+  }
+
+  .btn-danger {
+    @apply btn border border-rose-500/30 bg-rose-500/10 text-rose-300 hover:bg-rose-500/20;
+  }
+
+  .field {
+    @apply w-full px-3 py-2 text-sm;
+  }
+
+  .label {
+    @apply mb-1.5 block text-xs font-medium uppercase tracking-wider text-slate-400;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-xs font-medium text-slate-300;
+  }
+
+  .table-base {
+    @apply w-full text-left text-sm;
+  }
+  .table-base thead th {
+    @apply px-3 py-2.5 text-xs font-semibold uppercase tracking-wider text-slate-400 border-b border-white/10;
+  }
+  .table-base tbody td {
+    @apply px-3 py-2.5 border-b border-white/[0.05] text-slate-300;
+  }
+  .table-base tbody tr:hover {
+    @apply bg-white/[0.03];
+  }
+}
+
+/* React Flow theming */
+.react-flow__background {
+  background-color: #070c18;
+}
+.react-flow__attribution {
+  display: none;
+}
+.react-flow__controls {
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: none;
+}
+.react-flow__controls-button {
+  background: #0d1426;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  fill: #cbd5e1;
+}
+.react-flow__controls-button:hover {
+  background: #151f38;
+}
+.react-flow__minimap {
+  background: #0a1020;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.react-flow__edge-text {
+  fill: #cbd5e1;
+  font-size: 11px;
+  font-weight: 600;
+}
+.react-flow__handle {
+  width: 6px;
+  height: 6px;
+  background: #22d3ee;
+  border: none;
+  opacity: 0.55;
+}
+
+.node-glow {
+  box-shadow: 0 0 0 1px rgba(148, 163, 184, 0.25), 0 0 22px rgba(59, 130, 246, 0.35);
+}
+.node-glow-purple {
+  box-shadow: 0 0 0 1px rgba(167, 139, 250, 0.65), 0 0 26px rgba(139, 92, 246, 0.55);
+}
+.node-glow-cyan {
+  box-shadow: 0 0 0 1px rgba(34, 211, 238, 0.7), 0 0 26px rgba(34, 211, 238, 0.5);
+}
+.node-glow-emerald {
+  box-shadow: 0 0 0 1px rgba(52, 211, 153, 0.7), 0 0 26px rgba(16, 185, 129, 0.45);
+}
+.node-glow-amber {
+  box-shadow: 0 0 0 1px rgba(251, 191, 36, 0.7), 0 0 26px rgba(245, 158, 11, 0.45);
+}
+
+.skeleton {
+  background: linear-gradient(90deg, rgba(148, 163, 184, 0.06) 25%, rgba(148, 163, 184, 0.14) 50%, rgba(148, 163, 184, 0.06) 75%);
+  background-size: 800px 100%;
+  @apply animate-shimmer rounded-lg;
+}
